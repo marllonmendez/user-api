@@ -28,7 +28,7 @@ Projeto criado com base em uma aplicação simples para o processo seletivo da e
 #### Address:
 - Listagem de todos os endereços;
 - Pesquisa de um endereço pelo Id;
-- Ediçao de um endereço pelo Id;
+- Edição de um endereço pelo Id;
 - Adição de um endereço com id de um usuário.
 
 <h4>1. Instalação de Dependências:</h4>
@@ -37,7 +37,7 @@ Projeto criado com base em uma aplicação simples para o processo seletivo da e
 mvn install
 ```
 
-Este comando irá baixar as dependências do projeto e construir o projeto. Ele executa as fases `compile`, `test`, e `package` do ciclo de vida do Maven. O artefato construído geralmente será colocado no diretório `target` do projeto.
+Este comando irá baixar as dependências do projeto e construir o projeto. Ele executa as fases `compile`, `test`, e `package` do ciclo de vida do Maven.
 
 <h4>2. Configuração do Banco de Dados PostgreSQL:</h4>
 
