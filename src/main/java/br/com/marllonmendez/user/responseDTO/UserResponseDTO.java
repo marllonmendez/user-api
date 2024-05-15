@@ -1,7 +1,7 @@
-package system.user.responseDTO;
+package br.com.marllonmendez.user.responseDTO;
 
-import system.user.model.AddressModel;
-import system.user.model.UserModel;
+import br.com.marllonmendez.user.model.AddressModel;
+import br.com.marllonmendez.user.model.UserModel;
 
 import java.util.List;
 import java.util.UUID;

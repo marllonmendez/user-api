@@ -8,9 +8,9 @@
 		<version>3.2.5</version>
 		<relativePath/>
 	</parent>
-	<groupId>system</groupId>
+	<groupId>br.com.marllonmendez</groupId>
 	<artifactId>user</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>User</name>
 	<description>API Usuário para Processo seletivo</description>
 	<properties>

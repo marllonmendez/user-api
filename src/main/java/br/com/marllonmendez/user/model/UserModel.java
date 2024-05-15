@@ -1,6 +1,6 @@
-package system.user.model;
+package br.com.marllonmendez.user.model;
 
-import system.user.requestDTO.UserRequestDTO;
+import br.com.marllonmendez.user.requestDTO.UserRequestDTO;
 import lombok.*;
 import jakarta.persistence.*;
 

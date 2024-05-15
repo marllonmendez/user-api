@@ -1,10 +1,10 @@
-package system.user.controller;
+package br.com.marllonmendez.user.controller;
 
-import system.user.model.AddressModel;
-import system.user.repository.IAddressRepository;
-import system.user.repository.IUserRepository;
-import system.user.responseDTO.AddressResponseDTO;
-import system.user.service.AddressService;
+import br.com.marllonmendez.user.model.AddressModel;
+import br.com.marllonmendez.user.service.AddressService;
+import br.com.marllonmendez.user.repository.IAddressRepository;
+import br.com.marllonmendez.user.repository.IUserRepository;
+import br.com.marllonmendez.user.responseDTO.AddressResponseDTO;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +27,12 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public List<AddressResponseDTO> getAll() {
         return iAddressRepository.findAll().stream().map(AddressResponseDTO::new).toList();
     }
 
-    @RequestMapping("/search/{id}")
+    @GetMapping("/search/{id}")
     public ResponseEntity addressSearch(@PathVariable UUID id) {
         var address = this.iAddressRepository.findById(id);
         if (address == null || !address.getId().equals(id)) {
@@ -42,7 +42,7 @@ public class AddressController {
         return ResponseEntity.ok(address);
     }
 
-    @RequestMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity addressUpdate(@RequestParam String zipcode, @RequestParam String number, @PathVariable UUID id) {
         var address = this.iAddressRepository.findById(id);
         if (address == null || !address.getId().equals(id)) {
@@ -64,7 +64,7 @@ public class AddressController {
         return ResponseEntity.ok(this.iAddressRepository.save(saveNewAddreess));
     }
 
-    @RequestMapping("/addAddress/{id}")
+    @PostMapping("/addAddress/{id}")
     public ResponseEntity addAddress(@RequestParam String zipcode, @RequestParam String number, @RequestParam String typeAddress, @PathVariable UUID id) {
         var user = this.iUserRepository.findById(id);
         if (user == null || !user.getId().equals(id)) {
@@ -91,6 +91,19 @@ public class AddressController {
         var addAddressToUser = this.iUserRepository.save(user);
         return ResponseEntity.ok(addAddressToUser);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteAddress(@PathVariable UUID id) {
+        var address = this.iAddressRepository.findById(id);
+        if (address == null || !address.getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Endereço não encontrado!");
+        }
+
+        this.iAddressRepository.delete(address);
+
+        return ResponseEntity.ok("Endereço removido com sucesso!");
+    }
+
 }
 
 

@@ -1,4 +1,4 @@
-package system.user.model;
+package br.com.marllonmendez.user.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.*;

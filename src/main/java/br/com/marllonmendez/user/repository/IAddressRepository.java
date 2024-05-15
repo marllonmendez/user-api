@@ -1,7 +1,7 @@
-package system.user.repository;
+package br.com.marllonmendez.user.repository;
 
+import br.com.marllonmendez.user.model.AddressModel;
 import org.springframework.data.jpa.repository.JpaRepository;
-import system.user.model.AddressModel;
 
 import java.util.UUID;
 public interface IAddressRepository extends JpaRepository<AddressModel, Integer> {

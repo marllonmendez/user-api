@@ -1,4 +1,4 @@
-package system.user;
+package br.com.marllonmendez.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

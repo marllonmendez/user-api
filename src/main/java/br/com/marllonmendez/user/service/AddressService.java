@@ -1,6 +1,6 @@
-package system.user.service;
+package br.com.marllonmendez.user.service;
 
-import system.user.model.AddressModel;
+import br.com.marllonmendez.user.model.AddressModel;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

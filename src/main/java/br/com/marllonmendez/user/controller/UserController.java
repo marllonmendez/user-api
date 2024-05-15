@@ -1,12 +1,12 @@
-package system.user.controller;
+package br.com.marllonmendez.user.controller;
 
-import system.user.model.UserModel;
-import system.user.model.AddressModel;
-import system.user.repository.IUserRepository;
-import system.user.repository.IAddressRepository;
-import system.user.requestDTO.UserRequestDTO;
-import system.user.responseDTO.UserResponseDTO;
-import system.user.service.AddressService;
+import br.com.marllonmendez.user.model.AddressModel;
+import br.com.marllonmendez.user.model.UserModel;
+import br.com.marllonmendez.user.service.AddressService;
+import br.com.marllonmendez.user.repository.IUserRepository;
+import br.com.marllonmendez.user.repository.IAddressRepository;
+import br.com.marllonmendez.user.requestDTO.UserRequestDTO;
+import br.com.marllonmendez.user.responseDTO.UserResponseDTO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,12 +56,12 @@ public class UserController {
     }
 
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public List<UserResponseDTO> getAll() {
         return iUserRepository.findAll().stream().map(UserResponseDTO::new).toList();
     }
 
-    @RequestMapping("/search/{id}")
+    @GetMapping("/search/{id}")
     public ResponseEntity userSearch(@PathVariable UUID id) {
         var user = this.iUserRepository.findById(id);
         if (user == null || !user.getId().equals(id)) {
@@ -83,5 +83,17 @@ public class UserController {
 
         var userUpdate = this.iUserRepository.save(user);
         return ResponseEntity.ok(userUpdate);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteAddress(@PathVariable UUID id) {
+        var user = this.iUserRepository.findById(id);
+        if (user == null || !user.getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário não encontrado!");
+        }
+
+        this.iUserRepository.delete(user);
+
+        return ResponseEntity.ok("Usuário removido com sucesso!");
     }
 }

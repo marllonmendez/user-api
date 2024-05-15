@@ -1,6 +1,6 @@
-package system.user.repository;
+package br.com.marllonmendez.user.repository;
 
-import system.user.model.UserModel;
+import br.com.marllonmendez.user.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

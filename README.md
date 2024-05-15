@@ -23,13 +23,15 @@ Projeto criado com base em uma aplicação simples para o processo seletivo da e
 - Criação de usuário e endereço;
 - Listagem de todos os usuários e seus respectivos endereços;
 - Pesquisa do usuário pelo Id;
-- Edição do Usuário pelo Id em específico nome e data de nascimento.
+- Edição do Usuário pelo Id em específico nome e data de nascimento;
+- Remoção do usuário pelo Id.
 
 #### Address:
 - Listagem de todos os endereços;
 - Pesquisa de um endereço pelo Id;
 - Edição de um endereço pelo Id;
-- Adição de um endereço com id de um usuário.
+- Adição de um endereço com id de um usuário;
+- Remoção do endereço pelo Id.
 
 <h4>1. Instalação de Dependências:</h4>
 
